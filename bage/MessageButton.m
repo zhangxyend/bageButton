@@ -11,7 +11,7 @@
 @property(nonatomic,strong)UILabel * bageLabel;
 @end
 @implementation MessageButton
-
+#define pictuerwidth 30
 - (instancetype)init
 {
     self = [super init];
@@ -23,7 +23,7 @@
         label.text =_count;
         label.backgroundColor = [UIColor greenColor];
         label.textColor = [UIColor whiteColor];
-        label.font = [UIFont systemFontOfSize:12];
+        label.font = [UIFont systemFontOfSize:12.0];
         label.textAlignment = NSTextAlignmentCenter;
         [label sizeToFit];
         label.layer.cornerRadius = label.frame.size.height*0.5;
@@ -51,14 +51,14 @@
    
     //设置按钮图片frame
     CGRect imageRect = self.imageView.frame;
-    imageRect = CGRectMake((width-30)*0.5, height-30-self.titleLabel.frame.size.height, 30, 30);
+    imageRect = CGRectMake((width-pictuerwidth)*0.5, height-pictuerwidth-self.titleLabel.frame.size.height, pictuerwidth, pictuerwidth);
     self.imageView.frame = imageRect;
    //设置bagelabel的frame
     [_bageLabel sizeToFit];
-    _bageLabel.center = CGPointMake((width-30)*0.5+self.imageView.frame.size.width, height-30-self.titleLabel.frame.size.height+3);
+    _bageLabel.center = CGPointMake((width-pictuerwidth)*0.5+self.imageView.frame.size.width, height-pictuerwidth-self.titleLabel.frame.size.height+3);
   
         CGRect fram = _bageLabel.frame;
-        fram.size.height = 15;
+        fram.size.height = pictuerwidth*0.5;
     if ([_count integerValue]<99) {
         fram.size.width =  fram.size.height;
     }
